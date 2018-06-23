@@ -278,13 +278,15 @@ const Home = Vue.component('home', {
                     ;
                 if(!count)
                     continue;
-                
+
                 info.push({
-                    dish_id: dish.id,
-                    count:parseInt(count),
-                })
-            }
-            
+                        name: dish.name,
+                        dish_id: dish.id,
+                        count:parseInt(count),
+                    })
+                }
+                
+            console.log("info",info)
             this.order.dish_info = info;
         }
     },
@@ -452,7 +454,7 @@ const AdminOrder = Vue.component('admin-order', {
                 <td>{{row.table_id}}</td>
                 <td>
                     <span v-for="dish in row.dish_info">
-                        <span>菜品：{{dish.dish_id}}</span>
+                        <span>菜品：{{dish.name}}</span>
                         <span>数量：{{dish.count}}</span>
                     </span>
                 </td>
